@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#0d1117">
+<title>0점 파티 종합병원 🏥</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Black+Han+Sans&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0d1117;--card:#161b22;--card2:#1c2128;--border:#30363d;
+  --red:#ff4b4b;--green:#3fb950;--yellow:#d29922;--orange:#f0883e;--blue:#58a6ff;
+  --teal:#00b4a6;--pink:#f778ba;
+  --text:#e6edf3;--muted:#7d8590;--white:#ffffff;
+}
+html,body{height:100%;background:var(--bg);font-family:'Noto Sans KR',sans-serif;color:var(--text);overflow-x:hidden}
+.app{max-width:440px;margin:0 auto;min-height:100vh;padding-bottom:76px;position:relative}
+
+/* ── HERO HEADER ── */
+.hero{
+  background:linear-gradient(135deg,#0d2137 0%,#0d1117 50%,#1a0d1a 100%);
+  padding:20px 18px 0;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-60px;right:-40px;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(0,180,166,.15) 0%,transparent 70%);
+  border-radius:50%;
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:-20px;
+  width:150px;height:150px;
+  background:radial-gradient(circle,rgba(247,120,186,.08) 0%,transparent 70%);
+  border-radius:50%;
+}
+.hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:relative;z-index:1}
+.hospital-badge{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(0,180,166,.12);border:1px solid rgba(0,180,166,.3);
+  border-radius:50px;padding:6px 14px;
+}
+.hospital-badge .cross{font-size:16px}
+.hospital-badge span{font-size:12px;color:var(--teal);font-weight:700;letter-spacing:.5px}
+.scan-count{font-size:11px;color:var(--muted);text-align:right;line-height:1.5}
+.scan-count strong{color:var(--green);font-weight:700}
+
+.hero-title{text-align:center;padding:8px 0 20px;position:relative;z-index:1}
+.hero-char{font-size:64px;line-height:1;display:block;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-h1{font-family:'Black Han Sans',sans-serif;font-size:28px;color:var(--white);letter-spacing:-1px;margin:8px 0 4px}
+.hero-sub{font-size:13px;color:var(--muted);line-height:1.6}
+.hero-sub em{color:var(--teal);font-style:normal;font-weight:700}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border);background:var(--card);position:sticky;top:0;z-index:100}
+.tab-btn{flex:1;padding:12px 6px;font-size:12px;font-weight:700;color:var(--muted);background:none;border:none;cursor:pointer;transition:all .2s;font-family:'Noto Sans KR',sans-serif;position:relative}
+.tab-btn.on{color:var(--teal)}
+.tab-btn.on::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--teal);border-radius:2px 2px 0 0}
+.tab-btn i{font-size:16px;display:block;margin-bottom:2px}
+.cart-badge{position:absolute;top:8px;right:calc(50% - 16px);background:var(--red);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+.tab-content{display:none}
+.tab-content.on{display:block}
+
+/* ── SEARCH SECTION ── */
+.search-wrap{padding:14px 14px 0}
+.search-row{display:flex;gap:8px;margin-bottom:10px}
+.search-box{flex:1;position:relative}
+.search-box i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px}
+.search-input{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:12px;padding:11px 12px 11px 36px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:13px;outline:none;transition:border-color .2s}
+.search-input:focus{border-color:var(--teal)}
+.search-input::placeholder{color:var(--muted)}
+.cam-btn{background:var(--teal);border:none;border-radius:12px;padding:11px 14px;color:#fff;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:'Noto Sans KR',sans-serif;display:flex;align-items:center;gap:5px}
+.cam-btn i{font-size:17px}
+
+/* 카테고리 */
+.cats{display:flex;gap:6px;overflow-x:auto;padding:0 14px 10px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex-shrink:0;padding:5px 12px;background:var(--card2);border:1px solid var(--border);border-radius:50px;font-size:11px;font-weight:700;color:var(--muted);cursor:pointer;transition:all .2s}
+.cat.on{background:rgba(0,180,166,.15);border-color:var(--teal);color:var(--teal)}
+
+/* 음식 리스트 */
+.food-list{background:var(--card);border-radius:16px;margin:0 14px;overflow:hidden;border:1px solid var(--border)}
+.food-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid var(--border);transition:background .15s;cursor:pointer}
+.food-item:last-child{border-bottom:none}
+.food-item:hover{background:var(--card2)}
+.food-emoji{font-size:26px;width:36px;text-align:center;flex-shrink:0}
+.food-info{flex:1;min-width:0}
+.food-name{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.food-meta{display:flex;gap:8px;margin-top:3px;flex-wrap:wrap}
+.food-meta span{font-size:10px;color:var(--muted)}
+.food-meta .warn{color:var(--orange)}
+.food-meta .danger{color:var(--red)}
+.food-score{font-size:13px;font-weight:900;width:36px;text-align:center;flex-shrink:0}
+.add-btn{width:30px;height:30px;border-radius:50%;border:none;background:var(--teal);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .15s}
+.add-btn:active{transform:scale(.9)}
+
+/* 빈 상태 */
+.empty{text-align:center;padding:40px 20px;color:var(--muted)}
+.empty-icon{font-size:48px;display:block;margin-bottom:12px}
+.empty-text{font-size:13px;line-height:1.7}
+
+/* ── CART SECTION ── */
+.cart-wrap{padding:14px}
+
+/* 총점 카드 */
+.total-card{border-radius:20px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden;transition:all .5s}
+.total-card.safe{background:linear-gradient(135deg,#0d2a0d,#0d1117);border:1px solid #1a4d1a}
+.total-card.caution{background:linear-gradient(135deg,#2a1f00,#0d1117);border:1px solid #4d3a00}
+.total-card.danger{background:linear-gradient(135deg,#2a1200,#0d1117);border:1px solid #4d2200}
+.total-card.doom{background:linear-gradient(135deg,#2a0000,#0d1117);border:1px solid #4d0000}
+.total-card.empty-cart{background:var(--card);border:1px solid var(--border)}
+.total-card::before{
+  content:attr(data-char);position:absolute;right:-10px;top:-10px;
+  font-size:100px;opacity:.12;line-height:1;
+}
+.card-label{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:1px;margin-bottom:8px}
+.card-score-row{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+.card-score{font-family:'Black Han Sans',sans-serif;font-size:72px;line-height:1;letter-spacing:-3px}
+.card-unit{font-size:18px;color:var(--muted)}
+.card-verdict{font-size:22px;font-weight:900;margin-bottom:6px}
+.card-desc{font-size:12px;color:var(--muted);line-height:1.6;font-style:italic}
+.gauge-wrap{margin:12px 0 4px}
+.gauge-track{height:10px;background:rgba(255,255,255,.08);border-radius:50px;overflow:hidden}
+.gauge-fill{height:100%;border-radius:50px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+.gauge-labels{display:flex;justify-content:space-between;margin-top:3px}
+.gauge-labels span{font-size:9px;color:var(--muted)}
+
+/* 카페인 경고 */
+.caffeine-bar{background:var(--card2);border-radius:14px;padding:12px 14px;margin-bottom:12px;border:1px solid var(--border)}
+.caffeine-bar.warn{border-color:rgba(240,136,62,.4);background:rgba(240,136,62,.06)}
+.caffeine-bar.danger{border-color:rgba(255,75,75,.4);background:rgba(255,75,75,.06);animation:pulse-border 1.5s infinite}
+@keyframes pulse-border{0%,100%{border-color:rgba(255,75,75,.4)}50%{border-color:rgba(255,75,75,.8)}}
+.caf-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.caf-label{font-size:11px;font-weight:700;display:flex;align-items:center;gap:5px}
+.caf-label i{font-size:14px}
+.caf-amount{font-size:13px;font-weight:900}
+.caf-track{height:8px;background:rgba(255,255,255,.08);border-radius:50px;overflow:hidden}
+.caf-fill{height:100%;border-radius:50px;transition:width .6s ease;background:var(--green)}
+.caf-fill.warn{background:var(--orange)}
+.caf-fill.danger{background:var(--red)}
+.caf-note{font-size:10px;color:var(--muted);margin-top:5px;line-height:1.5}
+.caf-note.danger{color:var(--red);font-weight:700}
+
+/* 장바구니 아이템 */
+.cart-items{background:var(--card);border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:12px}
+.cart-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--border)}
+.cart-header-title{font-size:12px;font-weight:700;color:var(--muted)}
+.cart-clear{background:none;border:none;color:var(--muted);font-size:11px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;padding:2px 6px;border-radius:6px;transition:all .2s}
+.cart-clear:hover{color:var(--red);background:rgba(255,75,75,.1)}
+.cart-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--border)}
+.cart-item:last-child{border-bottom:none}
+.ci-emoji{font-size:22px;width:30px;text-align:center;flex-shrink:0}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-score{font-size:11px;font-weight:900;margin-top:2px}
+.ci-remove{width:24px;height:24px;border-radius:50%;border:none;background:rgba(255,75,75,.1);color:var(--red);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* 합산 영양 */
+.nutrition-summary{background:var(--card2);border-radius:14px;padding:14px;margin-bottom:12px;border:1px solid var(--border)}
+.nut-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.nut-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.nut-item{text-align:center;background:var(--card);border-radius:10px;padding:8px 4px}
+.nut-val{font-size:14px;font-weight:900}
+.nut-lbl{font-size:10px;color:var(--muted);margin-top:2px}
+.nut-item.over .nut-val{color:var(--red)}
+.nut-item.warn .nut-val{color:var(--orange)}
+.nut-item.ok .nut-val{color:var(--green)}
+
+/* 조합 판정 */
+.combo-verdict{background:var(--card);border-radius:14px;padding:14px;margin-bottom:12px;border:1px solid var(--border)}
+.combo-title{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:10px}
+.combo-item{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:12px;line-height:1.5}
+.combo-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.combo-tip{background:rgba(0,180,166,.08);border:1px solid rgba(0,180,166,.2);border-radius:10px;padding:10px 12px;margin-top:10px}
+.combo-tip-t{font-size:11px;color:var(--teal);font-weight:700;margin-bottom:4px}
+.combo-tip-b{font-size:11px;color:var(--muted);line-height:1.6}
+
+/* 검진 버튼 */
+.exam-btn{width:100%;padding:16px;border-radius:14px;border:none;background:var(--teal);color:#fff;font-family:'Black Han Sans',sans-serif;font-size:18px;cursor:pointer;transition:all .2s;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:8px}
+.exam-btn:hover{background:#009a8c;transform:translateY(-1px)}
+.exam-btn:active{transform:scale(.98)}
+.exam-btn:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none}
+.exam-btn i{font-size:20px}
+
+/* 카메라 */
+.cam-section{padding:14px}
+.cam-frame{border:2px dashed var(--border);border-radius:20px;padding:24px 16px;text-align:center;cursor:pointer;transition:all .3s}
+.cam-frame.scanning{border-color:var(--teal);background:rgba(0,180,166,.04)}
+.cam-box{width:200px;height:200px;margin:0 auto 14px;position:relative;border-radius:16px;overflow:hidden;background:#0a0a0a}
+.cam-box video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:none}
+.cam-placeholder{font-size:56px;padding:36px 0 12px;display:block}
+.corner{position:absolute;width:22px;height:22px;border-color:var(--teal);border-style:solid;z-index:10}
+.corner.tl{top:6px;left:6px;border-width:3px 0 0 3px;border-radius:4px 0 0}
+.corner.tr{top:6px;right:6px;border-width:3px 3px 0 0;border-radius:0 4px 0}
+.corner.bl{bottom:6px;left:6px;border-width:0 0 3px 3px;border-radius:0 0 0 4px}
+.corner.br{bottom:6px;right:6px;border-width:0 3px 3px 0;border-radius:0 0 4px}
+.scan-line{position:absolute;left:6px;right:6px;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);animation:scanY 1.8s linear infinite;display:none}
+.scanning .scan-line{display:block}
+@keyframes scanY{0%{top:6px}100%{top:calc(100% - 8px)}}
+.cam-hint{font-size:12px;color:var(--muted);line-height:1.7}
+.bc-row{display:flex;gap:8px;margin-top:12px}
+.bc-input{flex:1;background:var(--card2);border:1px solid var(--border);border-radius:11px;padding:11px 13px;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:13px;outline:none}
+.bc-input:focus{border-color:var(--teal)}
+.bc-btn{background:var(--teal);border:none;border-radius:11px;padding:11px 16px;color:#fff;font-weight:700;font-size:13px;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+
+/* 결과 팝업 */
+.result-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.result-overlay.show{opacity:1;pointer-events:all}
+.result-sheet{background:var(--card);border-radius:24px 24px 0 0;padding:20px;width:100%;max-width:440px;max-height:85vh;overflow-y:auto;transform:translateY(100%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.result-overlay.show .result-sheet{transform:translateY(0)}
+.sheet-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px}
+.sheet-product{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sheet-emoji{font-size:40px}
+.sheet-pname{font-size:16px;font-weight:900}
+.sheet-pmeta{font-size:11px;color:var(--muted);margin-top:2px}
+.sheet-score-big{text-align:center;margin-bottom:16px}
+.sheet-num{font-family:'Black Han Sans',sans-serif;font-size:80px;line-height:1;letter-spacing:-4px}
+.sheet-verdict-row{display:flex;justify-content:center;margin-bottom:4px}
+.sheet-verdict{padding:6px 18px;border-radius:50px;font-size:14px;font-weight:900}
+.sheet-char{font-size:48px;display:block;text-align:center;margin:8px 0;animation:bounce 1s ease}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.sheet-nuts{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:14px 0}
+.sheet-nut{background:var(--card2);border-radius:10px;padding:8px;text-align:center}
+.sheet-nut-v{font-size:13px;font-weight:900}
+.sheet-nut-l{font-size:10px;color:var(--muted);margin-top:2px}
+.sheet-reasons{margin-bottom:14px}
+.sheet-reason-t{font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px}
+.sheet-reason{display:flex;align-items:flex-start;gap:7px;margin-bottom:6px;font-size:12px;line-height:1.5}
+.sr-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.sheet-add-btn{width:100%;padding:14px;border-radius:12px;border:none;background:var(--teal);color:#fff;font-family:'Black Han Sans',sans-serif;font-size:16px;cursor:pointer;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:6px}
+.sheet-close{width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:none;color:var(--muted);font-size:13px;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+
+/* 히스토리 */
+.hist-wrap{padding:14px}
+.hist-item{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:12px;padding:11px 13px;margin-bottom:8px;border:1px solid var(--border)}
+.hi-emoji{font-size:22px;width:28px;text-align:center;flex-shrink:0}
+.hi-info{flex:1}
+.hi-name{font-size:12px;font-weight:700}
+.hi-time{font-size:10px;color:var(--muted)}
+.hi-score{font-size:18px;font-weight:900;width:36px;text-align:center;flex-shrink:0}
+.hi-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:50px}
+.empty-hist{text-align:center;padding:60px 20px;color:var(--muted);font-size:13px}
+
+/* 통계 */
+.stats-wrap{padding:14px}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.stat-card{background:var(--card);border-radius:13px;padding:14px;border:1px solid var(--border);text-align:center}
+.stat-n{font-family:'Black Han Sans',sans-serif;font-size:28px;line-height:1}
+.stat-l{font-size:10px;color:var(--muted);margin-top:3px}
+.tip-card{background:var(--card);border-radius:13px;padding:13px;margin-bottom:9px;border:1px solid var(--border)}
+.tip-t{font-size:12px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.tip-b{font-size:11px;color:var(--muted);line-height:1.6}
+
+/* Nav */
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:440px;background:rgba(13,17,23,.95);backdrop-filter:blur(10px);border-top:1px solid var(--border);display:flex;padding:8px 0 12px;z-index:200}
+.ntab{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;padding:5px 0;opacity:.35;transition:all .2s;position:relative}
+.ntab.on{opacity:1;color:var(--teal)}
+.ntab i{font-size:22px}
+.ntab span{font-size:10px;font-family:'Noto Sans KR',sans-serif;font-weight:700}
+.nbadge{position:absolute;top:3px;right:calc(50% - 18px);background:var(--red);color:#fff;font-size:9px;font-weight:900;min-width:16px;height:16px;border-radius:8px;display:none;align-items:center;justify-content:center;padding:0 3px}
+.nbadge.show{display:flex}
+
+@media(max-width:440px){.nav{width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hospital-badge">
+      <span class="cross">🏥</span>
+      <span>0점 파티 종합병원</span>
+    </div>
+    <div class="scan-count">상품 DB<br><strong>100개</strong> 수록</div>
+  </div>
+  <div class="hero-title">
+    <span class="hero-char" id="heroChar">😐</span>
+    <h1 class="hero-h1">오늘 얼마나 망했나요?</h1>
+    <p class="hero-sub">편의점 음식을 담으면 <em>망함 지수</em>를 알려드려요<br>조합도 분석해드릴게요 🔬</p>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab-btn on" id="n-search" onclick="goTab('search')"><i class="ti ti-search"></i>검색</button>
+  <button class="tab-btn" id="n-cart" onclick="goTab('cart')">
+    <i class="ti ti-shopping-cart"></i>내 식단
+    <span class="cart-badge" id="cartBadge" style="display:none">0</span>
+  </button>
+  <button class="tab-btn" id="n-cam" onclick="goTab('cam')"><i class="ti ti-scan"></i>스캔</button>
+  <button class="tab-btn" id="n-hist" onclick="goTab('hist')"><i class="ti ti-history"></i>기록</button>
+</div>
+
+<!-- SEARCH TAB -->
+<div class="tab-content on" id="tab-search">
+  <div class="search-wrap">
+    <div class="search-row">
+      <div class="search-box">
+        <i class="ti ti-search"></i>
+        <input class="search-input" id="searchInput" placeholder="신라면, 바나나우유, 레드불..." oninput="filterFoods()"/>
+      </div>
+      <button class="cam-btn" onclick="goTab('cam')"><i class="ti ti-scan"></i>스캔</button>
+    </div>
+  </div>
+  <div class="cats" id="catRow"></div>
+  <div class="food-list" id="foodList"></div>
+</div>
+
+<!-- CART TAB -->
+<div class="tab-content" id="tab-cart">
+  <div class="cart-wrap">
+    <!-- 총점 카드 -->
+    <div class="total-card empty-cart" id="totalCard" data-char="😐">
+      <div class="card-label">📋 오늘의 건강 검진 결과</div>
+      <div id="totalEmpty" style="text-align:center;padding:20px 0">
+        <div style="font-size:48px;margin-bottom:8px">🏥</div>
+        <div style="font-size:13px;color:var(--muted)">검색에서 음식을 담아보세요!</div>
+      </div>
+      <div id="totalFilled" style="display:none">
+        <div class="card-score-row">
+          <span class="card-score" id="totalScore">0</span>
+          <span class="card-unit">점</span>
+        </div>
+        <div class="card-verdict" id="totalVerdict"></div>
+        <p class="card-desc" id="totalDesc"></p>
+        <div class="gauge-wrap">
+          <div class="gauge-track"><div class="gauge-fill" id="totalGauge" style="width:0%"></div></div>
+          <div class="gauge-labels"><span>건강</span><span>주의</span><span>위험</span><span>망함</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 카페인 바 -->
+    <div class="caffeine-bar" id="cafBar">
+      <div class="caf-top">
+        <div class="caf-label"><i class="ti ti-bolt" style="color:var(--yellow)"></i><span id="cafLabel">카페인 섭취량</span></div>
+        <span class="caf-amount" id="cafAmount">0mg</span>
+      </div>
+      <div class="caf-track"><div class="caf-fill" id="cafFill" style="width:0%"></div></div>
+      <div class="caf-note" id="cafNote">청소년 하루 권장량: 125mg | 지금까지 0mg</div>
+    </div>
+
+    <!-- 장바구니 아이템 -->
+    <div class="cart-items" id="cartItems" style="display:none">
+      <div class="cart-header">
+        <span class="cart-header-title">🛒 담은 음식</span>
+        <button class="cart-clear" onclick="clearCart()">전체 비우기</button>
+      </div>
+      <div id="cartList"></div>
+    </div>
+
+    <!-- 영양 합산 -->
+    <div class="nutrition-summary" id="nutSummary" style="display:none">
+      <div class="nut-title"><i class="ti ti-chart-pie"></i> 합산 영양성분</div>
+      <div class="nut-grid" id="nutGrid"></div>
+    </div>
+
+    <!-- 조합 판정 -->
+    <div class="combo-verdict" id="comboVerdict" style="display:none">
+      <div class="combo-title">🔬 조합 분석 결과</div>
+      <div id="comboList"></div>
+      <div class="combo-tip" id="comboTip" style="display:none">
+        <div class="combo-tip-t">💡 의사 선생님의 처방</div>
+        <div class="combo-tip-b" id="comboTipText"></div>
+      </div>
+    </div>
+
+    <button class="exam-btn" id="examBtn" onclick="runExam()" disabled>
+      <i class="ti ti-stethoscope"></i> 건강 검진 받기
+    </button>
+  </div>
+</div>
+
+<!-- CAM TAB -->
+<div class="tab-content" id="tab-cam">
+  <div class="cam-section">
+    <div class="cam-frame" id="camFrame" onclick="startCam()">
+      <div class="cam-box">
+        <span class="cam-placeholder" id="camIcon">📷</span>
+        <video id="vid" playsinline autoplay></video>
+        <div class="corner tl"></div><div class="corner tr"></div>
+        <div class="corner bl"></div><div class="corner br"></div>
+        <div class="scan-line"></div>
+      </div>
+      <div class="cam-hint" id="camHint">탭하면 카메라로 바코드를 스캔해요<br>편의점에서 상품 뒤에 있는 바코드를 찍어보세요</div>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button class="cam-btn" id="camStartBtn" onclick="startCam()" style="flex:1;justify-content:center">📷 카메라 켜기</button>
+      <button class="cam-btn" id="camStopBtn" onclick="stopCam()" style="flex:1;justify-content:center;background:var(--card2);color:var(--muted);border:1px solid var(--border);display:none">✕ 끄기</button>
+    </div>
+    <div class="bc-row">
+      <input class="bc-input" id="bcInput" placeholder="바코드 번호 직접 입력" maxlength="20" onkeydown="if(event.key==='Enter')bcLookup()"/>
+      <button class="bc-btn" onclick="bcLookup()">조회</button>
+    </div>
+  </div>
+</div>
+
+<!-- HIST TAB -->
+<div class="tab-content" id="tab-hist">
+  <div class="hist-wrap" id="histWrap">
+    <div class="empty-hist">아직 스캔한 상품이 없어요 🏥</div>
+  </div>
+</div>
+
+<!-- STATS TAB (통계는 히스토리 아래) -->
+
+</div><!-- .app -->
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="ntab on" id="nav-search" onclick="goTab('search')"><i class="ti ti-search"></i><span>검색</span></div>
+  <div class="ntab" id="nav-cart" onclick="goTab('cart')">
+    <i class="ti ti-shopping-cart"></i><span>내 식단</span>
+    <div class="nbadge" id="navBadge">0</div>
+  </div>
+  <div class="ntab" id="nav-cam" onclick="goTab('cam')"><i class="ti ti-scan"></i><span>스캔</span></div>
+  <div class="ntab" id="nav-hist" onclick="goTab('hist')"><i class="ti ti-history"></i><span>기록</span></div>
+</nav>
+
+<!-- RESULT SHEET -->
+<div class="result-overlay" id="resultOverlay" onclick="closeSheet(event)">
+  <div class="result-sheet" id="resultSheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-product">
+      <span class="sheet-emoji" id="sheetEmoji"></span>
+      <div><div class="sheet-pname" id="sheetName"></div><div class="sheet-pmeta" id="sheetMeta"></div></div>
+    </div>
+    <div class="sheet-score-big">
+      <div class="sheet-num" id="sheetNum">0</div>
+      <div class="sheet-verdict-row"><span class="sheet-verdict" id="sheetVerdict"></span></div>
+      <span class="sheet-char" id="sheetChar"></span>
+    </div>
+    <div class="sheet-nuts" id="sheetNuts"></div>
+    <div class="sheet-reasons">
+      <div class="sheet-reason-t">이 점수를 받은 이유</div>
+      <div id="sheetReasons"></div>
+    </div>
+    <button class="sheet-add-btn" id="sheetAddBtn" onclick="addFromSheet()"><i class="ti ti-shopping-cart" style="font-size:18px"></i> 내 식단에 추가하기</button>
+    <button class="sheet-close" onclick="closeResult()">닫기</button>
+  </div>
+</div>
+
+<script src="https://unpkg.com/@zxing/library@0.18.6/umd/index.min.js"></script>
+<script>
+// ══════════════════════════════════════════
+// 상품 DB — 100개 (카페인 추가!)
+// cal, sugar, sodium, fat, protein, carb, caffeine(mg), cat, emoji
+// ══════════════════════════════════════════
+const DB = {
+  // ── 라면 (12)
+  'r01':{name:'신라면 큰사발',brand:'농심',cal:505,sugar:4,sodium:1970,fat:17,protein:11,carb:76,caffeine:0,cat:'라면',emoji:'🍜',bc:'8801115114512'},
+  'r02':{name:'신라면',brand:'농심',cal:500,sugar:3,sodium:1790,fat:16,protein:10,carb:74,caffeine:0,cat:'라면',emoji:'🍜',bc:'8801115114505'},
+  'r03':{name:'진라면 매운맛',brand:'오뚜기',cal:500,sugar:4,sodium:1780,fat:15,protein:10,carb:75,caffeine:0,cat:'라면',emoji:'🍜',bc:'8801043014502'},
+  'r04':{name:'불닭볶음면',brand:'삼양',cal:530,sugar:8,sodium:1360,fat:17,protein:13,carb:79,caffeine:0,cat:'라면',emoji:'🔥',bc:'8801073290001'},
+  'r05':{name:'짜파게티',brand:'농심',cal:560,sugar:6,sodium:1350,fat:21,protein:11,carb:79,caffeine:0,cat:'라면',emoji:'🍝',bc:'8801115136828'},
+  'r06':{name:'너구리',brand:'농심',cal:520,sugar:4,sodium:1870,fat:18,protein:11,carb:75,caffeine:0,cat:'라면',emoji:'🦝',bc:'8801115134527'},
+  'r07':{name:'참깨라면',brand:'오뚜기',cal:510,sugar:4,sodium:1690,fat:18,protein:10,carb:74,caffeine:0,cat:'라면',emoji:'🍜',bc:'8801043017510'},
+  'r08':{name:'안성탕면',brand:'농심',cal:490,sugar:3,sodium:1830,fat:15,protein:9,carb:75,caffeine:0,cat:'라면',emoji:'🍜',bc:'8801115113522'},
+  'r09':{name:'불닭볶음탕면',brand:'삼양',cal:500,sugar:6,sodium:1300,fat:15,protein:12,carb:76,caffeine:0,cat:'라면',emoji:'🔥',bc:'8801073290018'},
+  'r10':{name:'육개장 큰사발',brand:'농심',cal:490,sugar:3,sodium:1940,fat:14,protein:10,carb:77,caffeine:0,cat:'라면',emoji:'🥘',bc:'8801115153507'},
+  'r11':{name:'진짜쫄면',brand:'오뚜기',cal:460,sugar:7,sodium:1540,fat:10,protein:9,carb:80,caffeine:0,cat:'라면',emoji:'🍜'},
+  'r12':{name:'삼양라면',brand:'삼양',cal:500,sugar:3,sodium:1750,fat:15,protein:10,carb:75,caffeine:0,cat:'라면',emoji:'🍜'},
+
+  // ── 스낵 (14)
+  's01':{name:'허니버터칩',brand:'해태',cal:540,sugar:8,sodium:360,fat:31,protein:5,carb:67,caffeine:0,cat:'스낵',emoji:'🍟',bc:'8801019600019'},
+  's02':{name:'새우깡',brand:'농심',cal:500,sugar:3,sodium:940,fat:22,protein:7,carb:67,caffeine:0,cat:'스낵',emoji:'🦐',bc:'8800301120024'},
+  's03':{name:'오징어집',brand:'농심',cal:510,sugar:4,sodium:870,fat:27,protein:8,carb:63,caffeine:0,cat:'스낵',emoji:'🦑',bc:'8801011302704'},
+  's04':{name:'맛동산',brand:'해태',cal:520,sugar:18,sodium:310,fat:24,protein:6,carb:71,caffeine:0,cat:'스낵',emoji:'🍡'},
+  's05':{name:'꼬깔콘 고소한맛',brand:'농심',cal:540,sugar:3,sodium:620,fat:28,protein:6,carb:68,caffeine:0,cat:'스낵',emoji:'🌽'},
+  's06':{name:'포카칩 오리지널',brand:'오리온',cal:530,sugar:1,sodium:290,fat:30,protein:5,carb:64,caffeine:0,cat:'스낵',emoji:'🥔'},
+  's07':{name:'예감 오리지널',brand:'오리온',cal:500,sugar:3,sodium:650,fat:22,protein:6,carb:69,caffeine:0,cat:'스낵',emoji:'🧀'},
+  's08':{name:'고래밥',brand:'오리온',cal:430,sugar:9,sodium:510,fat:15,protein:5,carb:67,caffeine:0,cat:'스낵',emoji:'🐋'},
+  's09':{name:'초코파이',brand:'오리온',cal:470,sugar:38,sodium:330,fat:18,protein:6,carb:69,caffeine:5,cat:'스낵',emoji:'🍫'},
+  's10':{name:'칙촉 초코칩쿠키',brand:'롯데',cal:490,sugar:28,sodium:340,fat:22,protein:7,carb:67,caffeine:3,cat:'스낵',emoji:'🍪',bc:'8801030090116'},
+  's11':{name:'바나나킥',brand:'농심',cal:510,sugar:6,sodium:440,fat:24,protein:4,carb:70,caffeine:0,cat:'스낵',emoji:'🍌'},
+  's12':{name:'오감자',brand:'오리온',cal:490,sugar:4,sodium:580,fat:21,protein:5,carb:70,caffeine:0,cat:'스낵',emoji:'🥔'},
+  's13':{name:'자갈치',brand:'해태',cal:480,sugar:4,sodium:780,fat:20,protein:7,carb:67,caffeine:0,cat:'스낵',emoji:'🐟'},
+  's14':{name:'수미칩 오리지널',brand:'농심',cal:530,sugar:1,sodium:280,fat:29,protein:6,carb:65,caffeine:0,cat:'스낵',emoji:'🥔'},
+
+  // ── 음료 (20) — 카페인 핵심!
+  'd01':{name:'포카리스웨트 500ml',brand:'동아오츠카',cal:130,sugar:31,sodium:115,fat:0,protein:0,carb:32,caffeine:0,cat:'음료',emoji:'💙',bc:'8801128011027'},
+  'd02':{name:'코카콜라 500ml',brand:'코카콜라',cal:215,sugar:54,sodium:35,fat:0,protein:0,carb:54,caffeine:50,cat:'음료',emoji:'🥤',bc:'8801321000015'},
+  'd03':{name:'코카콜라 제로 500ml',brand:'코카콜라',cal:2,sugar:0,sodium:35,fat:0,protein:0,carb:0,caffeine:50,cat:'음료',emoji:'🥤',bc:'8801321000022'},
+  'd04':{name:'레드불 250ml',brand:'레드불',cal:113,sugar:27,sodium:105,fat:0,protein:0.7,carb:28,caffeine:80,cat:'음료',emoji:'⚡',bc:'8801600101038'},
+  'd05':{name:'몬스터에너지 355ml',brand:'몬스터',cal:160,sugar:37,sodium:180,fat:0,protein:0,carb:41,caffeine:142,cat:'음료',emoji:'💚',bc:'8801600101045'},
+  'd06':{name:'핫식스 250ml',brand:'롯데칠성',cal:100,sugar:24,sodium:80,fat:0,protein:0,carb:25,caffeine:62,cat:'음료',emoji:'🔥'},
+  'd07':{name:'박카스 F 120ml',brand:'동아제약',cal:82,sugar:19,sodium:15,fat:0,protein:0.3,carb:20,caffeine:30,cat:'음료',emoji:'💊',bc:'8801237120029'},
+  'd08':{name:'게토레이 600ml',brand:'롯데칠성',cal:150,sugar:35,sodium:220,fat:0,protein:0,carb:37,caffeine:0,cat:'음료',emoji:'🏃',bc:'8801056140019'},
+  'd09':{name:'칠성사이다 500ml',brand:'롯데칠성',cal:200,sugar:50,sodium:25,fat:0,protein:0,carb:50,caffeine:0,cat:'음료',emoji:'🍋'},
+  'd10':{name:'스프라이트 500ml',brand:'코카콜라',cal:195,sugar:50,sodium:30,fat:0,protein:0,carb:50,caffeine:0,cat:'음료',emoji:'🟢'},
+  'd11':{name:'조지아 오리지널 240ml',brand:'코카콜라',cal:122,sugar:22,sodium:55,fat:3.6,protein:3.4,carb:24,caffeine:95,cat:'음료',emoji:'☕',bc:'8801125516010'},
+  'd12':{name:'2% 부족할때 500ml',brand:'롯데칠성',cal:65,sugar:14,sodium:35,fat:0,protein:0,carb:16,caffeine:0,cat:'음료',emoji:'💧'},
+  'd13':{name:'트레비 레몬 500ml',brand:'롯데칠성',cal:0,sugar:0,sodium:20,fat:0,protein:0,carb:0,caffeine:0,cat:'음료',emoji:'💦'},
+  'd14':{name:'스마트워터 600ml',brand:'코카콜라',cal:0,sugar:0,sodium:0,fat:0,protein:0,carb:0,caffeine:0,cat:'음료',emoji:'💧'},
+  'd15':{name:'델몬트 오렌지주스 200ml',brand:'롯데칠성',cal:94,sugar:21,sodium:8,fat:0,protein:0.6,carb:22,caffeine:0,cat:'음료',emoji:'🍊'},
+  'd16':{name:'포카리스웨트 이온워터 900ml',brand:'동아오츠카',cal:90,sugar:21,sodium:207,fat:0,protein:0,carb:22,caffeine:0,cat:'음료',emoji:'💙'},
+  'd17':{name:'컨디션 100ml',brand:'CJ',cal:60,sugar:13,sodium:30,fat:0,protein:0.2,carb:15,caffeine:30,cat:'음료',emoji:'💊'},
+  'd18':{name:'비타500 100ml',brand:'광동제약',cal:45,sugar:10,sodium:5,fat:0,protein:0,carb:11,caffeine:0,cat:'음료',emoji:'🍋'},
+  'd19':{name:'녹차 500ml',brand:'동서',cal:0,sugar:0,sodium:5,fat:0,protein:0,carb:0,caffeine:50,cat:'음료',emoji:'🍵'},
+  'd20':{name:'에너지바 카페인샷',brand:'기타',cal:5,sugar:0,sodium:0,fat:0,protein:0,carb:1,caffeine:100,cat:'음료',emoji:'⚡'},
+
+  // ── 유제품 (10)
+  'm01':{name:'바나나맛우유 240ml',brand:'빙그레',cal:220,sugar:32,sodium:130,fat:6,protein:6,carb:34,caffeine:0,cat:'유제품',emoji:'🍌',bc:'8801052700071'},
+  'm02':{name:'딸기맛우유 240ml',brand:'빙그레',cal:210,sugar:29,sodium:125,fat:6,protein:6,carb:32,caffeine:0,cat:'유제품',emoji:'🍓'},
+  'm03':{name:'매일우유 200ml',brand:'매일유업',cal:130,sugar:10,sodium:95,fat:7,protein:7,carb:10,caffeine:0,cat:'유제품',emoji:'🥛'},
+  'm04':{name:'무가당두유 190ml',brand:'삼육',cal:70,sugar:0,sodium:60,fat:3,protein:5,carb:6,caffeine:0,cat:'유제품',emoji:'🫘'},
+  'm05':{name:'요플레 오리지널',brand:'빙그레',cal:160,sugar:22,sodium:80,fat:4,protein:4,carb:27,caffeine:0,cat:'유제품',emoji:'🍦'},
+  'm06':{name:'서울우유 200ml',brand:'서울우유',cal:130,sugar:10,sodium:100,fat:7,protein:7,carb:10,caffeine:0,cat:'유제품',emoji:'🥛'},
+  'm07':{name:'서울 저지방우유 200ml',brand:'서울우유',cal:85,sugar:10,sodium:100,fat:1.5,protein:7,carb:11,caffeine:0,cat:'유제품',emoji:'🥛'},
+  'm08':{name:'빙그레 커피맛우유',brand:'빙그레',cal:200,sugar:26,sodium:120,fat:5,protein:6,carb:31,caffeine:60,cat:'유제품',emoji:'☕'},
+  'm09':{name:'매일 바이오거트',brand:'매일유업',cal:90,sugar:14,sodium:60,fat:0.1,protein:4,carb:18,caffeine:0,cat:'유제품',emoji:'🫙'},
+  'm10':{name:'스트링치즈',brand:'서울우유',cal:80,sugar:0,sodium:200,fat:5,protein:8,carb:0,caffeine:0,cat:'단백질',emoji:'🧀'},
+
+  // ── 밥·김밥 (10)
+  'f01':{name:'삼각김밥 참치마요',brand:'GS25',cal:265,sugar:2,sodium:560,fat:5,protein:8,carb:46,caffeine:0,cat:'밥·김밥',emoji:'🍙',bc:'8801098670009'},
+  'f02':{name:'삼각김밥 불고기',brand:'GS25',cal:255,sugar:3,sodium:530,fat:4,protein:7,carb:47,caffeine:0,cat:'밥·김밥',emoji:'🍙'},
+  'f03':{name:'삼각김밥 명란젓',brand:'GS25',cal:250,sugar:2,sodium:590,fat:4,protein:7,carb:46,caffeine:0,cat:'밥·김밥',emoji:'🍙'},
+  'f04':{name:'직화 불고기 도시락',brand:'CU',cal:680,sugar:8,sodium:1120,fat:15,protein:22,carb:105,caffeine:0,cat:'밥·김밥',emoji:'🍱'},
+  'f05':{name:'제육볶음 도시락',brand:'CU',cal:660,sugar:7,sodium:1090,fat:14,protein:20,carb:103,caffeine:0,cat:'밥·김밥',emoji:'🍱'},
+  'f06':{name:'공깃밥',brand:'GS25',cal:300,sugar:0,sodium:5,fat:0.5,protein:5,carb:66,caffeine:0,cat:'밥·김밥',emoji:'🍚'},
+  'f07':{name:'즉석 볶음밥 김치',brand:'GS25',cal:420,sugar:3,sodium:870,fat:8,protein:10,carb:75,caffeine:0,cat:'밥·김밥',emoji:'🍳'},
+  'f08':{name:'떡볶이',brand:'GS25',cal:380,sugar:18,sodium:980,fat:5,protein:6,carb:79,caffeine:0,cat:'밥·김밥',emoji:'🌶️'},
+  'f09':{name:'핫도그',brand:'GS25',cal:290,sugar:5,sodium:480,fat:12,protein:9,carb:36,caffeine:0,cat:'밥·김밥',emoji:'🌭'},
+  'f10':{name:'순대 500g',brand:'CU',cal:480,sugar:3,sodium:920,fat:18,protein:18,carb:58,caffeine:0,cat:'밥·김밥',emoji:'🫙'},
+
+  // ── 단백질 (8)
+  'p01':{name:'닭가슴살 100g',brand:'하림',cal:108,sugar:0,sodium:280,fat:1.2,protein:23,carb:0,caffeine:0,cat:'단백질',emoji:'💪',bc:'8809228340081'},
+  'p02':{name:'삶은달걀 2구',brand:'GS25',cal:140,sugar:0,sodium:120,fat:9,protein:13,carb:1,caffeine:0,cat:'단백질',emoji:'🥚',bc:'8801007245001'},
+  'p03':{name:'훈제오리 슬라이스',brand:'하림',cal:180,sugar:1,sodium:680,fat:10,protein:18,carb:3,caffeine:0,cat:'단백질',emoji:'🦆'},
+  'p04':{name:'닭가슴살 스테이크',brand:'하림',cal:115,sugar:1,sodium:320,fat:1.5,protein:24,carb:1,caffeine:0,cat:'단백질',emoji:'💪'},
+  'p05':{name:'두부바 오리지널',brand:'풀무원',cal:90,sugar:1,sodium:200,fat:4,protein:8,carb:5,caffeine:0,cat:'단백질',emoji:'🫘'},
+  'p06':{name:'어묵바',brand:'GS25',cal:120,sugar:2,sodium:420,fat:3,protein:7,carb:17,caffeine:0,cat:'단백질',emoji:'🐟'},
+  'p07':{name:'치킨가슴살 큐브',brand:'CU',cal:130,sugar:1,sodium:350,fat:2,protein:25,carb:2,caffeine:0,cat:'단백질',emoji:'🍗'},
+  'p08':{name:'그릭요거트',brand:'남양',cal:120,sugar:8,sodium:60,fat:3,protein:10,carb:14,caffeine:0,cat:'단백질',emoji:'🫙'},
+
+  // ── 빵·디저트 (8)
+  'b01':{name:'크림빵',brand:'SPC삼립',cal:340,sugar:18,sodium:320,fat:12,protein:7,carb:51,caffeine:0,cat:'빵·디저트',emoji:'🥐'},
+  'b02':{name:'단팥빵',brand:'SPC삼립',cal:290,sugar:20,sodium:230,fat:6,protein:7,carb:53,caffeine:0,cat:'빵·디저트',emoji:'🥯'},
+  'b03':{name:'가나 초콜릿',brand:'롯데',cal:560,sugar:48,sodium:45,fat:35,protein:7,carb:57,caffeine:20,cat:'빵·디저트',emoji:'🍫'},
+  'b04':{name:'빼빼로 오리지널',brand:'롯데',cal:500,sugar:40,sodium:200,fat:22,protein:7,carb:68,caffeine:5,cat:'빵·디저트',emoji:'🍡'},
+  'b05':{name:'오레오 오리지널',brand:'롯데',cal:480,sugar:32,sodium:330,fat:20,protein:5,carb:70,caffeine:5,cat:'빵·디저트',emoji:'🍪'},
+  'b06':{name:'치즈케이크 조각',brand:'CU',cal:310,sugar:24,sodium:220,fat:17,protein:5,carb:37,caffeine:0,cat:'빵·디저트',emoji:'🎂'},
+  'b07':{name:'핫도그빵',brand:'SPC삼립',cal:380,sugar:12,sodium:540,fat:16,protein:10,carb:49,caffeine:0,cat:'빵·디저트',emoji:'🌭'},
+  'b08':{name:'다이제 오리지널',brand:'동서',cal:460,sugar:18,sodium:350,fat:17,protein:7,carb:70,caffeine:0,cat:'빵·디저트',emoji:'🍪'},
+
+  // ── 아이스크림 (8)
+  'i01':{name:'메로나',brand:'빙그레',cal:110,sugar:13,sodium:55,fat:3,protein:1,carb:20,caffeine:0,cat:'아이스크림',emoji:'🍧'},
+  'i02':{name:'월드콘',brand:'롯데',cal:290,sugar:26,sodium:90,fat:13,protein:4,carb:40,caffeine:0,cat:'아이스크림',emoji:'🍦'},
+  'i03':{name:'수박바',brand:'빙그레',cal:130,sugar:15,sodium:30,fat:0,protein:0,carb:32,caffeine:0,cat:'아이스크림',emoji:'🍉'},
+  'i04':{name:'빠삐코',brand:'롯데',cal:120,sugar:14,sodium:40,fat:2,protein:1,carb:24,caffeine:0,cat:'아이스크림',emoji:'🧊'},
+  'i05':{name:'구구 크러스터',brand:'롯데',cal:310,sugar:28,sodium:80,fat:15,protein:4,carb:42,caffeine:0,cat:'아이스크림',emoji:'🍦'},
+  'i06':{name:'누가바',brand:'농심',cal:160,sugar:17,sodium:50,fat:5,protein:2,carb:27,caffeine:0,cat:'아이스크림',emoji:'🍬'},
+  'i07':{name:'설레임',brand:'롯데',cal:170,sugar:20,sodium:50,fat:5,protein:2,carb:29,caffeine:0,cat:'아이스크림',emoji:'🧊'},
+  'i08':{name:'투게더',brand:'빙그레',cal:340,sugar:28,sodium:80,fat:18,protein:5,carb:41,caffeine:0,cat:'아이스크림',emoji:'🍨'},
+
+  // ── 건강식 (6)
+  'h01':{name:'바나나 1개',brand:'자연산',cal:86,sugar:12,sodium:1,fat:0.3,protein:1.1,carb:22,caffeine:0,cat:'건강',emoji:'🍌'},
+  'h02':{name:'방울토마토 200g',brand:'자연산',cal:36,sugar:4,sodium:4,fat:0.2,protein:1.6,carb:7,caffeine:0,cat:'건강',emoji:'🍅'},
+  'h03':{name:'고구마 150g',brand:'자연산',cal:131,sugar:6,sodium:55,fat:0.1,protein:1.5,carb:31,caffeine:0,cat:'건강',emoji:'🍠'},
+  'h04':{name:'삶은옥수수',brand:'GS25',cal:180,sugar:5,sodium:10,fat:1,protein:4,carb:38,caffeine:0,cat:'건강',emoji:'🌽'},
+  'h05':{name:'생수 500ml',brand:'제주삼다수',cal:0,sugar:0,sodium:0,fat:0,protein:0,carb:0,caffeine:0,cat:'건강',emoji:'💧'},
+  'h06':{name:'아메리카노 (편의점)',brand:'GS25',cal:5,sugar:0,sodium:5,fat:0,protein:0,carb:1,caffeine:150,cat:'건강',emoji:'☕'},
+
+  // ── 주류 (4)
+  'a01':{name:'참이슬 후레쉬 360ml',brand:'하이트진로',cal:320,sugar:0,sodium:0,fat:0,protein:0,carb:0,caffeine:0,cat:'주류',emoji:'🍶',alcohol:16.5,bc:'8801073210001'},
+  'a02':{name:'카스 500ml',brand:'오비맥주',cal:205,sugar:0,sodium:15,fat:0,protein:1.5,carb:13,caffeine:0,cat:'주류',emoji:'🍺',alcohol:4.5},
+  'a03':{name:'테라 500ml',brand:'하이트진로',cal:200,sugar:0,sodium:10,fat:0,protein:1.5,carb:12,caffeine:0,cat:'주류',emoji:'🍺',alcohol:4.6},
+  'a04':{name:'처음처럼 360ml',brand:'롯데주류',cal:310,sugar:0,sodium:0,fat:0,protein:0,carb:0,caffeine:0,cat:'주류',emoji:'🍶',alcohol:16},
+};
+
+// 바코드 맵
+const BC_MAP = {};
+Object.entries(DB).forEach(([id,p])=>{ if(p.bc) BC_MAP[p.bc]=id; });
+
+// 카테고리
+const CATS = ['전체','라면','스낵','음료','유제품','밥·김밥','단백질','빵·디저트','아이스크림','건강','주류'];
+const CAF_LIMIT = 125; // 청소년 하루 카페인 권장량 mg
+
+let cart = [];
+let histList = [];
+let curCat = '전체';
+let curQuery = '';
+let codeReader = null;
+let scanning = false;
+let sheetProductId = null;
+
+// ── 점수 계산
+function calcScore(p) {
+  let s = 0;
+  s += Math.min(38, p.cal / 13);
+  s += Math.min(24, p.sugar * 1.7);
+  s += Math.min(20, (p.sodium / 2400) * 20);
+  s += Math.min(10, p.fat / 4);
+  if(p.alcohol) s += p.alcohol * 2.5;
+  return Math.round(Math.max(0, Math.min(100, s)));
+}
+
+function getTag(s) {
+  if(s<=20) return {text:'🟢 안전지대', color:'#3fb950', bg:'rgba(63,185,80,.15)', char:'😊', verdict:'오늘은 살았어요!', desc:'"의사도 놀란 건강한 선택... 정말요?"'};
+  if(s<=40) return {text:'🟡 주의 필요', color:'#d29922', bg:'rgba(210,153,34,.15)', char:'😅', verdict:'그럭저럭이에요', desc:'"뭐... 살 순 있어요. 아마도."'};
+  if(s<=65) return {text:'🟠 위험 신호', color:'#f0883e', bg:'rgba(240,136,62,.15)', char:'😰', verdict:'위험 신호 감지됨', desc:'"선생님, 이러시면 안 돼요..."'};
+  return {text:'🔴 망함 확정', color:'#ff4b4b', bg:'rgba(255,75,75,.15)', char:'💀', verdict:'망함 확정!!!', desc:'"입원 준비하시겠습니까?"'};
+}
+
+function scoreColor(s) {
+  if(s<=20) return '#3fb950';
+  if(s<=40) return '#d29922';
+  if(s<=65) return '#f0883e';
+  return '#ff4b4b';
+}
+
+// ── 초기화
+function init() {
+  // 카테고리 버튼
+  const cr = document.getElementById('catRow');
+  CATS.forEach(c => {
+    const btn = document.createElement('div');
+    btn.className = 'cat' + (c==='전체'?' on':'');
+    btn.textContent = c;
+    btn.onclick = () => { curCat=c; document.querySelectorAll('.cat').forEach(el=>el.classList.remove('on')); btn.classList.add('on'); renderFoods(); };
+    cr.appendChild(btn);
+  });
+  renderFoods();
+}
+
+function renderFoods() {
+  const list = document.getElementById('foodList');
+  const q = curQuery.toLowerCase();
+  const items = Object.entries(DB).filter(([id,p]) => {
+    const catOk = curCat==='전체' || p.cat===curCat;
+    const qOk = !q || p.name.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.cat.includes(q);
+    return catOk && qOk;
+  });
+
+  if(!items.length) {
+    list.innerHTML = `<div class="empty"><span class="empty-icon">🔍</span><div class="empty-text">"${curQuery}" 검색 결과가 없어요<br>다른 이름으로 검색해보세요</div></div>`;
+    return;
+  }
+
+  list.innerHTML = items.map(([id,p]) => {
+    const s = calcScore(p);
+    const c = scoreColor(s);
+    const cafWarn = p.caffeine >= 62 ? `<span class="danger">⚡카페인${p.caffeine}mg</span>` : p.caffeine > 0 ? `<span class="warn">카페인${p.caffeine}mg</span>` : '';
+    return `<div class="food-item" onclick="showProduct('${id}')">
+      <span class="food-emoji">${p.emoji||'🍱'}</span>
+      <div class="food-info">
+        <div class="food-name">${p.name}</div>
+        <div class="food-meta">
+          <span>${p.cal}kcal</span>
+          <span>${p.sodium}mg</span>
+          ${p.sugar>15?`<span class="warn">당류${p.sugar}g</span>`:`<span>당류${p.sugar}g</span>`}
+          ${cafWarn}
+        </div>
+      </div>
+      <span class="food-score" style="color:${c}">${s}</span>
+      <button class="add-btn" onclick="event.stopPropagation();quickAdd('${id}')">+</button>
+    </div>`;
+  }).join('');
+}
+
+function filterFoods() {
+  curQuery = document.getElementById('searchInput').value.trim();
+  renderFoods();
+}
+
+// ── 상품 상세 시트
+function showProduct(id) {
+  const p = DB[id];
+  if(!p) return;
+  const s = calcScore(p);
+  const tg = getTag(s);
+  sheetProductId = id;
+
+  document.getElementById('sheetEmoji').textContent = p.emoji||'🍱';
+  document.getElementById('sheetName').textContent = p.name;
+  document.getElementById('sheetMeta').textContent = `${p.brand} · ${p.cat}${p.caffeine?` · ⚡카페인 ${p.caffeine}mg`:''}`;
+
+  const num = document.getElementById('sheetNum');
+  num.style.color = tg.color;
+  let cur=0; const timer=setInterval(()=>{cur+=Math.ceil((s-cur)/5);if(cur>=s){cur=s;clearInterval(timer);}num.textContent=cur;},40);
+
+  const vEl = document.getElementById('sheetVerdict');
+  vEl.textContent = tg.text; vEl.style.background=tg.bg; vEl.style.color=tg.color;
+  document.getElementById('sheetChar').textContent = tg.char;
+
+  document.getElementById('sheetNuts').innerHTML = [
+    {l:'칼로리',v:`${p.cal}kcal`},{l:'당류',v:`${p.sugar}g`},{l:'나트륨',v:`${p.sodium}mg`},
+    {l:'탄수화물',v:`${p.carb}g`},{l:'단백질',v:`${p.protein}g`},{l:'카페인',v:`${p.caffeine}mg`},
+  ].map(n=>`<div class="sheet-nut"><div class="sheet-nut-v">${n.v}</div><div class="sheet-nut-l">${n.l}</div></div>`).join('');
+
+  // 이유
+  const reasons = [];
+  if(p.cal>400) reasons.push({t:`칼로리 ${p.cal}kcal — 한 끼 권장량 초과`, bad:true});
+  else reasons.push({t:`칼로리 ${p.cal}kcal — 적당한 편`, bad:false});
+  if(p.sugar>20) reasons.push({t:`당류 ${p.sugar}g — 하루 권장량(50g)의 ${Math.round(p.sugar/50*100)}%`, bad:true});
+  else reasons.push({t:`당류 ${p.sugar}g — 괜찮아요`, bad:false});
+  if(p.sodium>800) reasons.push({t:`나트륨 ${p.sodium}mg — 과다! 물 마셔요`, bad:true});
+  else if(p.sodium>400) reasons.push({t:`나트륨 ${p.sodium}mg — 조금 높아요`, bad:true});
+  else reasons.push({t:`나트륨 ${p.sodium}mg — 양호해요`, bad:false});
+  if(p.caffeine>=80) reasons.push({t:`⚡카페인 ${p.caffeine}mg — 청소년 위험 수준!`, bad:true});
+  else if(p.caffeine>0) reasons.push({t:`카페인 ${p.caffeine}mg 포함`, bad:p.caffeine>30});
+  if(p.protein>=15) reasons.push({t:`단백질 ${p.protein}g — 훌륭해요 💪`, bad:false});
+  if(p.alcohol) reasons.push({t:`알코올 ${p.alcohol}% — 공부 전엔 절대 No!`, bad:true});
+
+  document.getElementById('sheetReasons').innerHTML = reasons.map(r=>
+    `<div class="sheet-reason"><div class="sr-dot" style="background:${r.bad?'#ff4b4b':'#3fb950'}"></div><span>${r.t}</span></div>`
+  ).join('');
+
+  // 이미 담겼는지
+  const already = cart.some(c=>c.id===id);
+  document.getElementById('sheetAddBtn').textContent = already ? '✓ 이미 담겼어요' : '🛒 내 식단에 추가하기';
+  document.getElementById('sheetAddBtn').disabled = already;
+
+  document.getElementById('resultOverlay').classList.add('show');
+}
+
+function addFromSheet() {
+  if(sheetProductId) { quickAdd(sheetProductId); closeResult(); }
+}
+
+function closeResult() { document.getElementById('resultOverlay').classList.remove('show'); }
+function closeSheet(e) { if(e.target===document.getElementById('resultOverlay')) closeResult(); }
+
+// ── 장바구니
+function quickAdd(id) {
+  const p = DB[id];
+  cart.push({id, ...p});
+  updateCart();
+  updateHeroBadge();
+  // 살짝 흔들림
+  const btn = event.currentTarget;
+  if(btn) { btn.style.transform='scale(1.3)'; setTimeout(()=>btn.style.transform='',200); }
+}
+
+function removeFromCart(idx) {
+  cart.splice(idx,1);
+  updateCart();
+  updateHeroBadge();
+}
+
+function clearCart() {
+  cart=[];
+  updateCart();
+  updateHeroBadge();
+}
+
+function updateHeroBadge() {
+  const n = cart.length;
+  const badge = document.getElementById('navBadge');
+  badge.textContent = n;
+  badge.classList.toggle('show', n>0);
+  // 히어로 캐릭터
+  const total = calcTotalScore();
+  const tg = cart.length ? getTag(total) : null;
+  document.getElementById('heroChar').textContent = tg ? tg.char : '😐';
+}
+
+function calcTotalScore() {
+  if(!cart.length) return 0;
+  const avg = {cal:0,sugar:0,sodium:0,fat:0,protein:0,caffeine:0,alcohol:0};
+  cart.forEach(p=>{ Object.keys(avg).forEach(k=>avg[k]+=(p[k]||0)); });
+  // 합산 기준으로 점수 계산
+  let s=0;
+  s+=Math.min(50,(avg.cal/2000)*50);
+  s+=Math.min(20,(avg.sugar/50)*20);
+  s+=Math.min(20,(avg.sodium/2400)*20);
+  s+=Math.min(10,(avg.fat/65)*10);
+  if(avg.alcohol>0) s+=avg.alcohol*2;
+  return Math.round(Math.max(0,Math.min(100,s)));
+}
+
+function calcTotalCaffeine() {
+  return cart.reduce((sum,p)=>sum+(p.caffeine||0),0);
+}
+
+function updateCart() {
+  const hasItems = cart.length>0;
+  const total = calcTotalScore();
+  const totalCaf = calcTotalCaffeine();
+  const tg = getTag(total);
+
+  // 총점 카드
+  const tc = document.getElementById('totalCard');
+  tc.className = 'total-card ' + (hasItems ? (total<=20?'safe':total<=40?'caution':total<=65?'danger':'doom') : 'empty-cart');
+  tc.setAttribute('data-char', hasItems?tg.char:'😐');
+  document.getElementById('totalEmpty').style.display = hasItems?'none':'block';
+  document.getElementById('totalFilled').style.display = hasItems?'block':'none';
+
+  if(hasItems) {
+    const numEl=document.getElementById('totalScore');
+    numEl.style.color=tg.color;
+    let cur=0;const timer=setInterval(()=>{cur+=Math.ceil((total-cur)/5);if(cur>=total){cur=total;clearInterval(timer);}numEl.textContent=cur;},40);
+    document.getElementById('totalVerdict').textContent=tg.char+' '+tg.verdict;
+    document.getElementById('totalVerdict').style.color=tg.color;
+    document.getElementById('totalDesc').textContent=tg.desc;
+    document.getElementById('totalGauge').style.width=total+'%';
+    document.getElementById('totalGauge').style.background=tg.color;
+  }
+
+  // 카페인 바
+  const cafPct = Math.min(100,(totalCaf/CAF_LIMIT)*100);
+  const cafFill = document.getElementById('cafFill');
+  const cafBar = document.getElementById('cafBar');
+  const cafNote = document.getElementById('cafNote');
+  const cafLabel = document.getElementById('cafLabel');
+  cafFill.style.width=cafPct+'%';
+  document.getElementById('cafAmount').textContent=totalCaf+'mg';
+  document.getElementById('cafAmount').style.color = totalCaf>=CAF_LIMIT?'#ff4b4b':totalCaf>=62?'#f0883e':'#e6edf3';
+
+  if(totalCaf>=CAF_LIMIT) {
+    cafBar.className='caffeine-bar danger';
+    cafFill.className='caf-fill danger';
+    cafLabel.innerHTML='<i class="ti ti-bolt" style="color:#ff4b4b"></i><span style="color:#ff4b4b">⚠️ 카페인 위험! 청소년 한계 초과</span>';
+    cafNote.className='caf-note danger';
+    cafNote.textContent=`청소년 하루 권장량 125mg 초과! 현재 ${totalCaf}mg — 심장 두근거림, 수면 방해 위험`;
+  } else if(totalCaf>=62) {
+    cafBar.className='caffeine-bar warn';
+    cafFill.className='caf-fill warn';
+    cafLabel.innerHTML='<i class="ti ti-bolt" style="color:#f0883e"></i><span style="color:#f0883e">카페인 주의 구간</span>';
+    cafNote.className='caf-note';
+    cafNote.textContent=`청소년 하루 권장량 125mg | 지금까지 ${totalCaf}mg (${Math.round(cafPct)}%)`;
+  } else {
+    cafBar.className='caffeine-bar';
+    cafFill.className='caf-fill';
+    cafLabel.innerHTML='<i class="ti ti-bolt" style="color:#d29922"></i><span>카페인 섭취량</span>';
+    cafNote.className='caf-note';
+    cafNote.textContent=`청소년 하루 권장량 125mg | 지금까지 ${totalCaf}mg`;
+  }
+
+  // 장바구니 목록
+  const ci = document.getElementById('cartItems');
+  const cl = document.getElementById('cartList');
+  ci.style.display = hasItems?'block':'none';
+  if(hasItems) {
+    cl.innerHTML = cart.map((p,i)=>{
+      const s=calcScore(p);
+      return`<div class="cart-item">
+        <span class="ci-emoji">${p.emoji||'🍱'}</span>
+        <div class="ci-info">
+          <div class="ci-name">${p.name}</div>
+          <div class="ci-score" style="color:${scoreColor(s)}">${s}점 · ${p.cal}kcal${p.caffeine?` · ⚡${p.caffeine}mg`:''}</div>
+        </div>
+        <button class="ci-remove" onclick="removeFromCart(${i})">×</button>
+      </div>`;
+    }).join('');
+  }
+
+  // 영양 합산
+  const ns = document.getElementById('nutSummary');
+  const ng = document.getElementById('nutGrid');
+  ns.style.display = hasItems?'block':'none';
+  if(hasItems) {
+    const tot = {cal:0,sugar:0,sodium:0,fat:0,protein:0,caffeine:0};
+    cart.forEach(p=>Object.keys(tot).forEach(k=>tot[k]+=(p[k]||0)));
+    ng.innerHTML = [
+      {l:'총 칼로리',v:`${tot.cal}kcal`,cls:tot.cal>2000?'over':tot.cal>1200?'warn':'ok'},
+      {l:'총 당류',v:`${tot.sugar}g`,cls:tot.sugar>50?'over':tot.sugar>25?'warn':'ok'},
+      {l:'총 나트륨',v:`${tot.sodium}mg`,cls:tot.sodium>2400?'over':tot.sodium>1200?'warn':'ok'},
+      {l:'총 지방',v:`${tot.fat}g`,cls:tot.fat>65?'over':tot.fat>30?'warn':'ok'},
+      {l:'총 단백질',v:`${tot.protein}g`,cls:tot.protein>50?'ok':''},
+      {l:'카페인',v:`${tot.caffeine}mg`,cls:tot.caffeine>=CAF_LIMIT?'over':tot.caffeine>=62?'warn':'ok'},
+    ].map(n=>`<div class="nut-item ${n.cls}"><div class="nut-val">${n.v}</div><div class="nut-lbl">${n.l}</div></div>`).join('');
+  }
+
+  // 조합 분석
+  const cv = document.getElementById('comboVerdict');
+  const comboList = document.getElementById('comboList');
+  cv.style.display = hasItems&&cart.length>=2?'block':'none';
+  if(hasItems&&cart.length>=2) {
+    const combos = analyzeCombo(cart);
+    comboList.innerHTML = combos.issues.map(c=>
+      `<div class="combo-item"><div class="combo-dot" style="background:${c.bad?'#ff4b4b':'#3fb950'}"></div><span>${c.text}</span></div>`
+    ).join('');
+    if(combos.tip) {
+      document.getElementById('comboTip').style.display='block';
+      document.getElementById('comboTipText').textContent=combos.tip;
+    } else {
+      document.getElementById('comboTip').style.display='none';
+    }
+  }
+
+  // 검진 버튼
+  document.getElementById('examBtn').disabled = !hasItems;
+
+  // 히스토리 기록 (담을 때)
+  renderHist();
+}
+
+function analyzeCombo(cart) {
+  const issues = [];
+  const names = cart.map(p=>p.name);
+  const hasRamen = cart.some(p=>p.cat==='라면');
+  const hasCola = cart.some(p=>p.name.includes('콜라')||p.name.includes('사이다'));
+  const hasWater = cart.some(p=>p.name.includes('생수')||p.name.includes('물'));
+  const hasEnergy = cart.some(p=>p.caffeine>=80);
+  const hasSnack = cart.some(p=>p.cat==='스낵');
+  const hasProtein = cart.some(p=>p.cat==='단백질');
+  const hasAlcohol = cart.some(p=>p.cat==='주류');
+  const totalCaf = cart.reduce((s,p)=>s+(p.caffeine||0),0);
+  const energyCount = cart.filter(p=>p.caffeine>=62).length;
+
+  if(hasRamen&&hasCola) issues.push({text:'라면 + 콜라 조합 = 나트륨·당류·카페인 삼중 폭탄 🔴', bad:true});
+  if(hasRamen&&hasWater) issues.push({text:'라면 + 생수 조합 = 그나마 나트륨 희석에 도움 👍', bad:false});
+  if(hasEnergy&&hasSnack) issues.push({text:'에너지드링크 + 과자 = 카페인·당류 동시 폭격 💀', bad:true});
+  if(energyCount>=2) issues.push({text:`에너지드링크 ${energyCount}캔 = 카페인 ${totalCaf}mg 위험 구간! ⚡`, bad:true});
+  if(hasAlcohol&&hasEnergy) issues.push({text:'주류 + 에너지드링크 = 심장에 매우 위험한 조합 🚨', bad:true});
+  if(hasProtein&&!hasAlcohol) issues.push({text:'단백질 식품 포함 = 현명한 선택! 💪', bad:false});
+  if(!issues.length) issues.push({text:'특별한 위험 조합은 없어요. 개별 점수를 확인하세요.', bad:false});
+
+  let tip = '';
+  if(hasRamen&&hasCola) tip='콜라 대신 생수나 무가당 두유로 바꿔보세요. 망함 지수가 크게 낮아져요!';
+  else if(energyCount>=2) tip=`에너지드링크 ${energyCount}캔은 청소년 카페인 권장량의 ${Math.round(totalCaf/CAF_LIMIT*100)}%예요. 1캔으로 줄이고 물을 함께 마셔요.`;
+  else if(hasRamen&&!hasWater) tip='라면에는 꼭 생수를 함께 드세요. 나트륨 배출에 도움이 돼요.';
+
+  return {issues, tip};
+}
+
+// ── 검진 결과 (전체 팝업)
+function runExam() {
+  if(!cart.length) return;
+  const total = calcTotalScore();
+  const tg = getTag(total);
+  // 히스토리에 조합 저장
+  histList.unshift({
+    type:'combo',
+    items:cart.map(p=>p.emoji||'🍱').join(''),
+    names:cart.map(p=>p.name).join(' + '),
+    score:total,
+    tg,
+    time:new Date().toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})
+  });
+  renderHist();
+  goTab('hist');
+}
+
+// ── 히스토리
+function renderHist() {
+  const w = document.getElementById('histWrap');
+  if(!histList.length) {
+    w.innerHTML='<div class="empty-hist">아직 스캔한 상품이 없어요 🏥<br><br>음식을 담고 검진을 받아보세요!</div>';
+    return;
+  }
+  w.innerHTML = histList.map(h=>`
+    <div class="hist-item">
+      <span class="hi-emoji" style="font-size:${h.type==='combo'?'14px':'22px'}">${h.items||h.emoji||'🍱'}</span>
+      <div class="hi-info">
+        <div class="hi-name">${h.names||h.name}</div>
+        <div class="hi-time">${h.time}</div>
+      </div>
+      <span class="hi-score" style="color:${h.tg.color}">${h.score}</span>
+      <span class="hi-tag" style="background:${h.tg.bg};color:${h.tg.color}">${h.tg.char}</span>
+    </div>`
+  ).join('');
+}
+
+// ── 카메라
+async function startCam() {
+  if(scanning) return;
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'},audio:false});
+    const v=document.getElementById('vid');
+    v.srcObject=stream;v.style.display='block';
+    document.getElementById('camIcon').style.display='none';
+    document.getElementById('camFrame').classList.add('scanning');
+    document.getElementById('camStartBtn').style.display='none';
+    document.getElementById('camStopBtn').style.display='block';
+    document.getElementById('camHint').textContent='바코드를 프레임 안에 맞춰주세요';
+    scanning=true;
+    if(typeof ZXing!=='undefined'){
+      codeReader=new ZXing.BrowserMultiFormatReader();
+      codeReader.decodeFromVideoElement(v,(res,err)=>{
+        if(res){const code=res.getText();stopCam();document.getElementById('bcInput').value=code;bcLookup();}
+      });
+    }
+  }catch(e){document.getElementById('camHint').textContent='카메라 권한이 필요해요. 아래에서 직접 입력하세요.';}
+}
+
+function stopCam(){
+  const v=document.getElementById('vid');
+  if(v.srcObject){v.srcObject.getTracks().forEach(t=>t.stop());v.srcObject=null;}
+  v.style.display='none';
+  document.getElementById('camIcon').style.display='block';
+  document.getElementById('camFrame').classList.remove('scanning');
+  document.getElementById('camStartBtn').style.display='block';
+  document.getElementById('camStopBtn').style.display='none';
+  document.getElementById('camHint').textContent='탭하면 카메라로 바코드를 스캔해요';
+  if(codeReader){try{codeReader.reset();}catch(e){}}
+  scanning=false;
+}
+
+function bcLookup(){
+  const code=document.getElementById('bcInput').value.trim();
+  if(!code){alert('바코드를 입력해주세요');return;}
+  const id=BC_MAP[code];
+  if(id){showProduct(id);goTab('search');}
+  else alert(`바코드 ${code}에 해당하는 상품이 DB에 없어요.\n상품명으로 검색해보세요!`);
+}
+
+// ── 탭 전환
+function goTab(t){
+  document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('on'));
+  document.querySelectorAll('.tab-btn,.ntab').forEach(el=>el.classList.remove('on'));
+  document.getElementById('tab-'+t).classList.add('on');
+  document.getElementById('n-'+t)?.classList.add('on');
+  document.getElementById('nav-'+t)?.classList.add('on');
+}
+
+init();
+</script>
+</body>
+</html>
